@@ -1511,6 +1511,15 @@ h1, h2, h3, h4, .label, .kv b, dt, dd { overflow-wrap: break-word; hyphens: manu
 }
 .team-strip b, .team-strip span { text-wrap: balance; max-width: 17ch; }
 
+/* ---- Solutions / Products / Company menus: always a dark panel with white text ---- */
+.mega { background: rgba(8, 13, 19, 0.88); --ink: #f2f6fa; --ink-3: rgba(242, 246, 250, 0.82); color: #f2f6fa; border: 1px solid rgba(140, 200, 255, 0.16); }
+.mega a.item b { color: #ffffff; }
+.mega a.item span { color: rgba(242, 246, 250, 0.84); }
+.mega a.item:hover, .mega a.item[aria-current="page"] { background: rgba(255, 255, 255, 0.08); }
+.mega a.item:hover b { color: #8fd3ff; }
+.mega.glass, html .mega.glass, :root:not([data-theme="dark"]) .mega.glass, :root[data-theme="dark"] .mega.glass { background: rgba(8, 13, 19, 0.9) !important; }
+.mega.glass a.item span, .mega.glass a.item b { text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35); }
+
 /* ---- Light theme: carry the Ovanova blue through the page ---- */
 .segs input:checked + span small { color: inherit; opacity: 0.75; }
 .btn-solid:hover { filter: brightness(1.08); }
