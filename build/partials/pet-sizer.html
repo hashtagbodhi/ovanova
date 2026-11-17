@@ -1,0 +1,54 @@
+<section class="band" id="pet-sizer">
+  <div class="wrap">
+    <div class="head" data-rise>
+      <span class="label sun">Size it for the job</span>
+      <h2>Which PET does this deployment need?</h2>
+      <p class="lead">Tell us what you're powering. We check it against each unit's output and storage, and show how little generator time a hybrid needs compared with running a generator all day.</p>
+    </div>
+    <div class="glass pz" data-tool="pet" data-rise>
+      <div class="pz-in">
+        <div class="presets" role="group" aria-label="Start from a typical deployment">
+          <span class="presets-label">Start from</span>
+          <button type="button" data-set="{&quot;med&quot;: 1, &quot;fridge&quot;: 2, &quot;light&quot;: 6, &quot;charge&quot;: 3, &quot;kitchen&quot;: 1, &quot;hvac&quot;: 0, &quot;tools&quot;: 0, &quot;pump&quot;: 1, &quot;comms&quot;: 1, &quot;pz-hours&quot;: 24}">Hurricane shelter</button>
+          <button type="button" data-set="{&quot;med&quot;: 0, &quot;fridge&quot;: 0, &quot;light&quot;: 2, &quot;charge&quot;: 1, &quot;kitchen&quot;: 0, &quot;hvac&quot;: 0, &quot;tools&quot;: 3, &quot;pump&quot;: 1, &quot;comms&quot;: 0, &quot;pz-hours&quot;: 10}">Job site</button>
+          <button type="button" data-set="{&quot;med&quot;: 0, &quot;fridge&quot;: 2, &quot;light&quot;: 4, &quot;charge&quot;: 3, &quot;kitchen&quot;: 2, &quot;hvac&quot;: 0, &quot;tools&quot;: 0, &quot;pump&quot;: 0, &quot;comms&quot;: 0, &quot;pz-hours&quot;: 14}">Festival</button>
+          <button type="button" data-set="{&quot;med&quot;: 2, &quot;fridge&quot;: 2, &quot;light&quot;: 2, &quot;charge&quot;: 1, &quot;kitchen&quot;: 0, &quot;hvac&quot;: 1, &quot;tools&quot;: 0, &quot;pump&quot;: 1, &quot;comms&quot;: 1, &quot;pz-hours&quot;: 24}">Field clinic</button>
+        </div>
+        <div class="pz-row" data-field="med"><span>Medical tent<small>1.5 kW average</small></span><span class="step-ctl"><button type="button" data-d="-1" aria-label="One fewer medical tent">−</button><output>1</output><button type="button" data-d="1" aria-label="One more medical tent">+</button></span></div>
+        <div class="pz-row" data-field="fridge"><span>Refrigeration unit<small>0.8 kW average</small></span><span class="step-ctl"><button type="button" data-d="-1" aria-label="One fewer refrigeration unit">−</button><output>2</output><button type="button" data-d="1" aria-label="One more refrigeration unit">+</button></span></div>
+        <div class="pz-row" data-field="light"><span>Shelter lights and fans<small>0.5 kW average</small></span><span class="step-ctl"><button type="button" data-d="-1" aria-label="One fewer shelter lighting set">−</button><output>3</output><button type="button" data-d="1" aria-label="One more shelter lighting set">+</button></span></div>
+        <div class="pz-row" data-field="charge"><span>Phone charging station<small>0.3 kW average</small></span><span class="step-ctl"><button type="button" data-d="-1" aria-label="One fewer charging station">−</button><output>2</output><button type="button" data-d="1" aria-label="One more charging station">+</button></span></div>
+        <div class="pz-row" data-field="kitchen"><span>Field kitchen<small>2.5 kW average</small></span><span class="step-ctl"><button type="button" data-d="-1" aria-label="One fewer field kitchen">−</button><output>0</output><button type="button" data-d="1" aria-label="One more field kitchen">+</button></span></div>
+        <div class="pz-row" data-field="hvac"><span>HVAC unit<small>2 kW average</small></span><span class="step-ctl"><button type="button" data-d="-1" aria-label="One fewer HVAC unit">−</button><output>0</output><button type="button" data-d="1" aria-label="One more HVAC unit">+</button></span></div>
+        <div class="pz-row" data-field="tools"><span>Power tools<small>0.8 kW average</small></span><span class="step-ctl"><button type="button" data-d="-1" aria-label="One fewer set of power tools">−</button><output>0</output><button type="button" data-d="1" aria-label="One more set of power tools">+</button></span></div>
+        <div class="pz-row" data-field="pump"><span>Water pump<small>0.75 kW average</small></span><span class="step-ctl"><button type="button" data-d="-1" aria-label="One fewer water pump">−</button><output>1</output><button type="button" data-d="1" aria-label="One more water pump">+</button></span></div>
+        <div class="pz-row" data-field="comms"><span>Command center IT and radios<small>1 kW average</small></span><span class="step-ctl"><button type="button" data-d="-1" aria-label="One fewer command center">−</button><output>1</output><button type="button" data-d="1" aria-label="One more command center">+</button></span></div>
+        <div class="ctl" style="margin-top:14px"><div class="ctl-top"><label for="pz-hours"><span>Hours of operation</span></label><output class="val" for="pz-hours">24 h/day</output></div>
+          <input type="range" id="pz-hours" min="4" max="24" step="1" value="24"></div>
+      </div>
+      <div class="pz-out" aria-live="polite">
+        <p class="pl-verdict pz-verdict"></p>
+        <div class="s3 s3-pet" data-scene="pet3d"><span class="s3-hint" aria-hidden="true">Ovanova PET. Drag to orbit.</span></div>
+        <div class="kv-row two">
+          <div class="kv"><span class="label">Peak if everything starts <button type="button" class="tipq" data-tip="peak" aria-label="What does this mean?" aria-expanded="false">?</button></span><b class="pz-peak">0</b></div>
+          <div class="kv"><span class="label">Energy needed a day</span><b class="pz-day">0</b></div>
+        </div>
+        <div class="pz-cards">
+          <div class="pz-card" data-pet="ember"><span class="pz-fit"></span><h4>Ember</h4><div class="pz-meter" title="Peak load as a share of output"><i></i></div>
+            <dl><div><dt>Output</dt><dd>22.8 kW</dd></div><div><dt>Runs</dt><dd class="pz-run"></dd></div><div><dt>Solar covers</dt><dd class="pz-sol"></dd></div><div><dt>Generator needed</dt><dd class="pz-genh"></dd></div></dl></div>
+          <div class="pz-card" data-pet="flame"><span class="pz-fit"></span><h4>Flame</h4><div class="pz-meter" title="Peak load as a share of output"><i></i></div>
+            <dl><div><dt>Output</dt><dd>22.8 kW</dd></div><div><dt>Runs</dt><dd class="pz-run"></dd></div><div><dt>Solar covers</dt><dd class="pz-sol"></dd></div><div><dt>Generator needed</dt><dd class="pz-genh"></dd></div></dl></div>
+          <div class="pz-card" data-pet="blaze"><span class="pz-fit"></span><h4>Blaze</h4><div class="pz-meter" title="Peak load as a share of output"><i></i></div>
+            <dl><div><dt>Output</dt><dd>62.4 kW 3-phase</dd></div><div><dt>Runs</dt><dd class="pz-run"></dd></div><div><dt>Solar covers</dt><dd class="pz-sol"></dd></div></dl></div>
+        </div>
+        <div class="genbars">
+          <span class="label">Generator run time per day</span>
+          <div class="genbar"><span>Conventional generator</span><span class="gtrack"><i class="pz-convbar"></i></span><b class="pz-convgen">24 h/day</b></div>
+          <div class="genbar us"><span>PET Flame, hybrid</span><span class="gtrack"><i class="pz-genbar-vis"></i></span><b class="pz-genh-vis">0 h/day</b></div>
+        </div>
+        <div class="send-row"><button class="btn btn-line" type="button" data-send>Send these results to Ovanova <span class="arrow" aria-hidden="true">→</span></button></div>
+        <p class="tool-note"><b>How this works:</b> peak = every load starting at once, checked against each unit's rated output. Daily energy = average loads × hours. Solar assumes 4.5 sun-hours a day. Battery runtime uses rated capacity; the generators (9 kW on Ember, 26 kW bi-fuel on Flame) only run to cover what solar and battery can't. Specs from Ovanova's PET line-up; Blaze's solar input is not listed, so it is counted as battery only.</p>
+      </div>
+    </div>
+  </div>
+</section>

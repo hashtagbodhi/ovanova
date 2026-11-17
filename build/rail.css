@@ -1,0 +1,96 @@
+/* ==== Rhythm: one 12-column grid, one spacing scale, one energy layer ==== */
+:root {
+  --pad: 20px;                                 /* page side margin, same value the grid is drawn from */
+  --gut: clamp(16px, 2vw, 28px);               /* column gutter */
+  --sec: clamp(72px, 9vw, 128px);              /* space between sections (balanced) */
+  --head-gap: clamp(32px, 4.5vw, 56px);        /* heading to its content */
+  --grid-line: rgba(120, 190, 255, 0.055);
+  --spine: rgba(140, 200, 255, 0.14);
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --grid-line: rgba(0, 119, 190, 0.09); --spine: rgba(0, 119, 190, 0.2); } }
+:root[data-theme="light"] { --grid-line: rgba(0, 119, 190, 0.09); --spine: rgba(0, 119, 190, 0.2); }
+@media (max-width: 420px) { :root { --pad: 16px; } }
+
+.wrap { padding-left: max(var(--pad), env(safe-area-inset-left, 0px)); padding-right: max(var(--pad), env(safe-area-inset-right, 0px)); }
+.band { padding-block: var(--sec); }
+.band + .band { padding-top: 0; }
+.band.sunk + .band, .band + .band.sunk { padding-top: var(--sec); }
+.head { gap: 20px; margin-bottom: var(--head-gap); width: min(100%, calc((100% + var(--gut)) * 8 / 12 - var(--gut))); max-width: none; }
+.head.row { width: auto; }
+.close { padding-block: calc(var(--sec) * 1.15) var(--sec); }
+
+/* sections on the 12-column grid: copy takes five columns, one column of silence, media takes six */
+.cards, .cards.two, .cards.four { column-gap: var(--gut); }
+.cards { gap: var(--gut); }
+.split, .split.wide-media, .split.wide-copy { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gut); row-gap: var(--head-gap); align-items: center; }
+.split > .copy { grid-column: 1 / span 5; }
+.split > :not(.copy) { grid-column: 7 / -1; }
+.split.flip > .copy { grid-column: 8 / -1; order: 2; }
+.split.flip > :not(.copy) { grid-column: 1 / span 6; }
+.split.wide-copy > .copy { grid-column: 1 / span 6; }
+.split.wide-copy > :not(.copy) { grid-column: 8 / -1; }
+@media (max-width: 900px) {
+  .split, .split.wide-media, .split.wide-copy { grid-template-columns: minmax(0, 1fr); }
+  .split > .copy, .split > :not(.copy), .split.flip > .copy, .split.flip > :not(.copy), .split.wide-copy > .copy, .split.wide-copy > :not(.copy) { grid-column: 1 / -1; order: 0; }
+  .head { width: 100%; }
+}
+
+/* ---- background layer: faint column grid + two slow glows (fixed, no repaint on scroll) ---- */
+.bgfx { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.bg-grid { position: absolute; top: 0; bottom: 0; left: 50%; width: min(1200px, calc(100vw - 2 * var(--pad))); transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / calc((100% + var(--gut)) / 12) 100%;
+  border-right: 1px solid var(--grid-line);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 18%, #000 74%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 18%, #000 74%, transparent 100%); }
+.bg-glow { position: absolute; width: min(900px, 110vw); aspect-ratio: 1; border-radius: 50%; will-change: transform;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--sun) 15%, transparent), transparent); }
+.bg-glow.a { left: -22vw; top: -20vh; transform: translate3d(0, calc(var(--bgp, 0) * 46vh), 0); }
+.bg-glow.b { right: -26vw; bottom: -30vh; opacity: 0.8; transform: translate3d(0, calc(var(--bgp, 0) * -40vh), 0); }
+@media (max-width: 760px) { .bg-grid { background-size: calc((100% + var(--gut)) / 4) 100%; } }
+
+/* sunk sections let the layer show through instead of going flat black */
+.band.sunk { background: linear-gradient(180deg, color-mix(in srgb, var(--bg-sunk) 55%, transparent), color-mix(in srgb, var(--bg-sunk) 88%, var(--sun) 2%) 22%, color-mix(in srgb, var(--bg-sunk) 88%, var(--sun) 2%) 78%, color-mix(in srgb, var(--bg-sunk) 55%, transparent)); }
+.band.sunk::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--spine), transparent); }
+
+/* ---- the energy spine: one thin wire down the left, filling as you scroll ---- */
+.rail { position: fixed; z-index: 3; top: 96px; bottom: 56px; left: max(8px, calc((100vw - 1240px) / 2 - 34px)); width: 9px; pointer-events: none; }
+.rail-track, .rail-fill { position: absolute; left: 4px; top: 0; bottom: 0; width: 1px; }
+.rail-track { background: var(--spine); }
+.rail-fill { background: linear-gradient(180deg, transparent, var(--sun) 40%, var(--sun)); transform-origin: 50% 0; transform: scaleY(var(--rp, 0)); box-shadow: 0 0 10px color-mix(in srgb, var(--sun) 70%, transparent); }
+.rail-head { position: absolute; left: 1px; top: 0; width: 7px; height: 7px; margin-top: -3px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 3px color-mix(in srgb, var(--sun) 35%, transparent), 0 0 16px 2px var(--sun); transform: translate3d(0, var(--rh, 0px), 0); }
+.rail-node { position: absolute; left: 2px; width: 5px; height: 5px; margin-top: -2px; border-radius: 50%; background: var(--bg); border: 1px solid var(--spine); transition: background-color 0.4s, border-color 0.4s, box-shadow 0.5s, transform 0.5s var(--ease); }
+.rail-node.on { background: var(--sun); border-color: var(--sun); box-shadow: 0 0 8px var(--sun); transform: scale(1.15); }
+@media (max-width: 760px) { .rail { top: 84px; bottom: 36px; left: 3px; } .rail-node { transform: none; } }
+html.app-open .rail, html.app-open .bgfx { visibility: hidden; }
+
+/* ---- section dividers: number on the first column, a hairline across the other eleven ---- */
+.sdiv { display: grid; grid-template-columns: calc((100% - 11 * var(--gut)) / 12) minmax(0, 1fr); column-gap: var(--gut); align-items: center; margin-bottom: clamp(28px, 4vw, 44px); }
+.sdiv .sn { white-space: nowrap; font: 400 0.62rem/1 var(--util); letter-spacing: 0.22em; color: var(--ink-3); }
+.sdiv .sl { position: relative; height: 1px; background: var(--line); overflow: hidden; }
+.sdiv .sl::after { content: ""; position: absolute; top: 0; left: 0; height: 100%; width: 22%; background: linear-gradient(90deg, transparent, var(--sun), transparent); transform: translateX(-120%); opacity: 0; }
+.sdiv.lit .sl::after { animation: pulse-run 1.9s var(--ease) 0.15s 1 both; }
+.sdiv.lit .sn { color: var(--sun); transition: color 0.8s 0.4s; }
+@keyframes pulse-run { 0% { transform: translateX(-120%); opacity: 0; } 12% { opacity: 1; } 100% { transform: translateX(520%); opacity: 0; } }
+.band.sunk .sdiv .sl { background: var(--line); }
+
+/* ---- card edges: one light pulse along the top edge, once, when the card arrives ---- */
+.cards .card { position: relative; }
+.cards .card::after { content: ""; position: absolute; left: 14px; right: 14px; top: -1px; height: 1px; border-radius: 1px; pointer-events: none; background: linear-gradient(90deg, transparent, var(--sun), transparent); background-size: 40% 100%; background-repeat: no-repeat; background-position: -60% 0; opacity: 0; }
+.cards .card.lit::after { animation: edge-run 1.6s var(--ease) 0.1s 1 both; }
+@keyframes edge-run { 0% { background-position: -60% 0; opacity: 0; } 15% { opacity: 0.9; } 100% { background-position: 160% 0; opacity: 0; } }
+
+/* ---- scroll reveals: one gentle rise for every block, same distance and timing everywhere ---- */
+.pre { transform: translate3d(0, 22px, 0); opacity: 0; }
+[data-rise] { transition: transform 0.9s var(--ease), opacity 0.9s var(--ease); transition-delay: var(--d, 0ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-glow { transform: none !important; }
+  .sdiv.lit .sl::after, .cards .card.lit::after { animation: none; }
+  .rail-node { transition: none; }
+  .pre { transform: none; opacity: 1; }
+}
+@media (max-width: 760px) { .sdiv { grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; } }
+.sdiv { grid-column: 1 / -1; }
+.split .rows > div { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-block: 20px; }
+.split > .sdiv { grid-column: 1 / -1 !important; order: -1 !important; }
+.split { row-gap: 0; }
+@media (max-width: 900px) { .split { row-gap: var(--head-gap); } .split > .sdiv { margin-bottom: 0; } }

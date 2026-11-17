@@ -1,0 +1,34 @@
+/* ---------- 3D scenes ---------- */
+.viz { position: relative; }
+.viz-switch { position: absolute; top: 14px; right: 14px; z-index: 4; }
+.viz-switch span { padding: 7px 14px; font-size: 0.78rem; }
+.viz.flat .s3 { display: none; }
+.viz:not(.flat) .flatview { display: none; }
+.s3 { position: relative; border-radius: var(--r-md); overflow: hidden; isolation: isolate; aspect-ratio: 16 / 9.5; min-height: 340px; }
+.s3-grid { background: linear-gradient(180deg, color-mix(in srgb, #7ec4f2 calc(var(--day, 1) * 100%), #040b16) 0%, color-mix(in srgb, #d8ecfa calc(var(--day, 1) * 100%), #0a1830) 64%); }
+.s3-land { background: radial-gradient(90% 70% at 50% 20%, color-mix(in srgb, var(--sun) 12%, transparent), transparent 70%); }
+.s3-canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; cursor: grab; touch-action: pan-y; }
+.s3.dragging .s3-canvas { cursor: grabbing; }
+.s3-labels { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.s3-tag { position: absolute; left: 0; top: 0; translate: -50% -100%; pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px 7px 10px; border-radius: 999px; border: 1px solid rgba(242, 246, 250, 0.22); background: rgba(6, 10, 14, 0.58); color: var(--media-ink); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font: 500 0.78rem/1 var(--body); cursor: pointer; white-space: nowrap; transition: background-color 0.3s, border-color 0.3s, color 0.3s, opacity 0.3s; }
+.s3-tag i { width: 7px; height: 7px; border-radius: 50%; background: #6b7a88; flex: none; transition: background-color 0.3s, box-shadow 0.3s; }
+.s3-tag[data-state="on"] i { background: #2eadf7; box-shadow: 0 0 8px #2eadf7; }
+.s3-tag[data-state="off"] i { background: #ef7f73; box-shadow: 0 0 8px #ef7f73; }
+.s3-tag:hover { border-color: var(--media-ink); }
+.s3-tag.sel { background: var(--media-ink); color: #070a0d; border-color: var(--media-ink); }
+.s3-tag:focus-visible { outline: 2px solid #5cc3ff; outline-offset: 3px; }
+.s3-note { position: absolute; left: 0; top: 0; translate: -50% -100%; font: 400 0.62rem/1.3 var(--util); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
+.s3-note.cap { color: var(--sun); translate: 0 6px; }
+.s3-note.peak { color: var(--ink-2); translate: 0 -100%; }
+.s3-note.hour { translate: -50% 0; }
+.s3-hint { position: absolute; left: 16px; bottom: 14px; z-index: 3; font: 400 0.62rem/1.4 var(--util); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(242, 246, 250, 0.7); pointer-events: none; }
+.s3-land .s3-hint { color: var(--ink-3); }
+.s3:not(.has3d)::after { content: ""; position: absolute; inset: 0; display: grid; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.stage.viz { padding-top: clamp(14px, 2.5vw, 30px); }
+@media (max-width: 700px) { .s3 { aspect-ratio: 4 / 3.6; min-height: 0; } .s3-tag { font-size: 0.78rem; padding: 6px 10px 6px 8px; } .viz-switch { top: 10px; right: 10px; } }
+
+.s3-pet { aspect-ratio: 16 / 8; min-height: 240px; background: radial-gradient(80% 90% at 50% 10%, color-mix(in srgb, var(--sun) 14%, transparent), transparent 70%); }
+.s3-pet .s3-hint { color: var(--ink-3); }
+.s3.no3d.s3-pet { display: none; }
+@media (max-width: 700px) { .s3-pet { aspect-ratio: 4 / 2.6; min-height: 0; } }

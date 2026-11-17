@@ -1,0 +1,105 @@
+<section class="band" id="com-sim">
+  <div class="wrap">
+    <div class="head" data-rise>
+      <span class="label sun">Business simulator</span>
+      <h2>Watch the same outage twice.</h2>
+      <p class="lead">The grid goes down at noon. One version of your business waits it out. The other runs on solar and a NERD. The meters show what each one costs, using your numbers from the calculator above.</p>
+    </div>
+    <div class="glass app-launch" data-rise>
+      <div class="app-poster">
+        <img src="img/biz-poster.jpg" alt="A 3D restaurant running through a grid outage on rooftop solar and a NERD, with a cost counter comparing it to a business without a microgrid" loading="lazy">
+        <span class="app-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>Interactive 3D</span>
+</div>
+      <div class="app-launch-copy">
+        <span class="label sun">Pick your business</span>
+        <h3>The lights go out at lunch. Who keeps serving?</h3>
+        <div class="bx-pick" role="group" aria-label="Business type">
+          <button type="button" class="btn btn-line" data-app-open="biz" data-biz="restaurant">Restaurant</button>
+          <button type="button" class="btn btn-line" data-app-open="biz" data-biz="cold">Cold storage</button>
+          <button type="button" class="btn btn-line" data-app-open="biz" data-biz="clinic">Clinic</button>
+          <button type="button" class="btn btn-line" data-app-open="biz" data-biz="factory">Factory</button>
+        </div>
+        <ul class="app-points">
+          <li>Two cost meters run side by side: without a microgrid, and with Ovanova</li>
+          <li>See what stays on, what gets shed, and how the NERD shaves your demand charge</li>
+          <li>Add NERDs or solar and watch the losses shrink</li>
+        </ul>
+        <div class="btn-row"><button class="btn btn-solid" type="button" data-app-open="biz">Run the outage <span class="arrow" aria-hidden="true">→</span></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="app-modal" id="app-biz" role="dialog" aria-modal="true" aria-labelledby="app-biz-title" hidden>
+  <div class="app-frame app-frame-house">
+    <header class="app-bar"><div><span class="label sun">Business control room</span><h3 id="app-biz-title">An outage at your business</h3></div><button class="round app-close" type="button" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+    <div class="app-body hx">
+      <div class="hx-main">
+        <div class="app-slot"><div class="pl-scene bx-scene" style="--day:0.6"><div class="pl-canvas" aria-hidden="true"></div>
+          <div class="bx-ticker" aria-hidden="true"><span class="bx-t-a">Without a microgrid <b data-bx="tA">$0</b></span><span class="bx-t-b">With Ovanova <b data-bx="tB">$0</b></span></div>
+          <span class="pl-hint" aria-hidden="true">Shown: your site with Ovanova. Drag to rotate</span></div></div>
+        <div class="hx-transport">
+          <button class="round hx-play" type="button" data-biz-play aria-pressed="false" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="hx-when"><b class="hx-time"></b><span class="hx-hour"></span></div>
+          <div class="hx-track">
+            <svg class="hx-strip" viewBox="0 0 1000 56" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <input type="range" class="hx-scrub" min="0" max="96" step="1" value="0" aria-label="Scrub through the day">
+          </div>
+          <div class="hx-speed" role="group" aria-label="Replay speed">
+            <button type="button" data-speed="0.075">1×</button><button type="button" data-speed="0.15" aria-pressed="true">2×</button><button type="button" data-speed="0.3">4×</button>
+          </div>
+        </div>
+      </div>
+      <aside class="hx-side" aria-label="Live business readout">
+        <section class="hx-card bx-vs">
+          <h4>Cost of today's outage</h4>
+          <div class="bx-vs-row">
+            <div class="bx-vs-a"><span>Without a microgrid</span><b data-bx="costA">$0</b><em data-bx="stA"></em></div>
+            <div class="bx-vs-b"><span>With Ovanova</span><b data-bx="costB">$0</b><em data-bx="stB"></em></div>
+          </div>
+          <p class="hx-verdict"></p>
+        </section>
+        <section class="hx-card hx-now">
+          <div class="hx-status"><i></i><div><b></b><p></p></div></div>
+          <div class="hx-batt">
+            <svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="35" class="hx-ring-bg"/><circle cx="42" cy="42" r="35" class="hx-ring" pathLength="100"/></svg>
+            <div class="hx-batt-v"><b></b><span>NERD</span></div>
+            <dl class="hx-batt-kv">
+              <div><dt>Stored</dt><dd data-hx="kwh"></dd></div>
+              <div><dt>Right now</dt><dd data-hx="left"></dd></div>
+            </dl>
+          </div>
+          <div class="hx-flows">
+            <h4>Where the power goes</h4>
+            <div class="hx-flow" data-f="gb"><span>Grid to business</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="sb"><span>Solar to business</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="nb"><span>NERD to business</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="sn"><span>Solar to NERD</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="gn"><span>Grid to NERD</span><i><s></s></i><b></b></div>
+          </div>
+        </section>
+        <section class="hx-card">
+          <h4>What's running</h4>
+          <ul class="hx-loads"></ul>
+        </section>
+        <section class="hx-card hx-tune">
+          <h4>Try a change</h4>
+          <div class="hx-seg bx-types" data-bx-type><button type="button" data-v="restaurant">Restaurant</button><button type="button" data-v="cold">Cold storage</button><button type="button" data-v="clinic">Clinic</button><button type="button" data-v="factory">Factory</button></div>
+          <div class="hx-row"><span>NERDs</span><div class="hx-step"><button type="button" class="round" data-bx-nerds="-1" aria-label="One fewer NERD">−</button><b data-bx="nerds"></b><button type="button" class="round" data-bx-nerds="1" aria-label="One more NERD">+</button><small data-bx="nerds-note"></small></div></div>
+          <div class="hx-row"><span>Solar</span><div class="hx-step"><button type="button" class="round" data-bx-solar="-1" aria-label="Less solar">−</button><b data-bx="solar"></b><button type="button" class="round" data-bx-solar="1" aria-label="More solar">+</button></div></div>
+          <div class="hx-row"><span>Outage</span><div class="hx-step"><button type="button" class="round" data-bx-len="-1" aria-label="Shorter outage">−</button><b data-bx="len"></b><button type="button" class="round" data-bx-len="1" aria-label="Longer outage">+</button></div></div>
+          <p class="tool-note" data-bx="inputs"></p>
+        </section>
+        <section class="hx-card">
+          <h4>Demand charges</h4>
+          <div class="bx-demand"><div><span>Peak billed, grid only</span><b data-bx="peakA"></b></div><div><span>Peak billed, with NERD</span><b data-bx="peakB"></b></div><div><span>Saved</span><b data-bx="demand" class="sun"></b></div></div>
+        </section>
+        <section class="hx-card">
+          <h4>Key moments <small>Tap to jump</small></h4>
+          <ol class="hx-events"></ol>
+        </section>
+        <section class="hx-card"><p class="tool-note" style="margin:0"><b>How this works:</b> a typical summer load shape for each business, in 15-minute steps. Each NERD is 65 kWh and 50 kW; half the charge shaves the daily peak and half stays in reserve for outages. If the NERD can't carry everything, it keeps the critical loads on and we count half your hourly cost. Spoilage is counted only when cooling actually stops. Lost hours, spoilage and restart time come from the calculator above.</p></section>
+      </aside>
+    </div>
+    <div class="app-loading" aria-live="polite"><div class="app-orb" aria-hidden="true"><i></i><i></i><i></i></div><p class="app-step">Starting</p><div class="app-progress" aria-hidden="true"><i></i></div></div>
+  </div>
+</div>

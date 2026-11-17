@@ -1,0 +1,86 @@
+<section class="band" id="home-system">
+  <div class="wrap">
+    <div class="head row" data-rise>
+      <div>
+        <span class="label sun">Build your microgrid</span>
+        <h2>Every source. One intelligence.</h2>
+        <p class="lead">Add solar, batteries, a generator or an EV. Run the clock, cut the grid, and watch the system decide where every kilowatt goes. In an outage it islands <button type="button" class="tipq" data-tip="island" aria-label="What does this mean?" aria-expanded="false">?</button></p>
+      </div>
+    </div>
+    <div class="glass app-launch" data-rise>
+      <div class="app-poster">
+        <img src="img/sandbox-poster.jpg" alt="A 3D microgrid: home, NERD controller, solar array, battery, EV and utility grid with live power readings" loading="lazy">
+        <span class="app-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>Interactive 3D</span>
+</div>
+      <div class="app-launch-copy">
+        <span class="label sun">Interactive simulator</span>
+        <h3>Build a microgrid. Then cut the grid.</h3>
+        <ul class="app-points">
+          <li>Add solar, batteries, a generator or an EV</li>
+          <li>Run a full day in 20 seconds and watch every kilowatt move</li>
+          <li>Cut the grid and get the fix when the lights go out</li>
+        </ul>
+        <div class="btn-row"><button class="btn btn-solid" type="button" data-app-open="sandbox">Launch the simulator <span class="arrow" aria-hidden="true">→</span></button></div>
+        <span class="small">Opens in its own window. Runs in your browser, nothing to install.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="app-modal" id="app-sandbox" role="dialog" aria-modal="true" aria-labelledby="app-sandbox-title" hidden>
+  <div class="app-frame">
+    <header class="app-bar"><div><span class="label sun">Ovanova simulator</span><h3 id="app-sandbox-title">Build your microgrid</h3></div><button class="round app-close" type="button" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+    <div class="app-body">
+      <div class="sbx" data-tool="sandbox">
+      <div class="glass sbx-stage" data-rise>
+        <div class="s3 s3-grid" data-scene="microgrid"><span class="s3-hint" aria-hidden="true">Drag to orbit</span></div>
+        <div class="sbx-clock">
+          <button class="round sbx-play" type="button" aria-label="Play the day" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="sbx-clock-track">
+            <div class="ctl-top"><label for="sbx-tod"><span class="sbx-time">1:00 pm</span></label><span class="pill sbx-pill" data-state="on">Running on sun</span></div>
+            <input type="range" id="sbx-tod" min="0" max="23.75" step="0.25" value="13">
+          </div>
+          <button class="sbx-grid" type="button" aria-pressed="false"><span class="sbx-switch" aria-hidden="true"><i></i></span><span class="sbx-grid-l">Grid is up</span></button>
+        </div>
+        <div class="kv-row sbx-live">
+          <div class="kv"><span class="label">Solar now</span><b data-v="sun">0</b></div>
+          <div class="kv"><span class="label">Home now</span><b data-v="load">0</b></div>
+          <div class="kv"><span class="label">Battery</span><b data-v="batt">0</b></div>
+          <div class="kv"><span class="label">Grid</span><b data-v="grid">0</b></div>
+        </div>
+      </div>
+      <div class="glass sbx-panel" data-rise style="--d:90ms">
+        <span class="label sun">Your system</span>
+        <ul class="sbx-parts">
+          <li><span class="sbx-part"><b>Solar</b><small>2 kW per step</small></span>
+            <span class="step-ctl"><button type="button" data-step="solar" data-d="-1" aria-label="Less solar">−</button><output data-out="solar">6 kW</output><button type="button" data-step="solar" data-d="1" aria-label="More solar">+</button></span></li>
+          <li><span class="sbx-part"><b>Batteries</b><small>5 kW each</small></span>
+            <span class="step-ctl"><button type="button" data-step="batt" data-d="-1" aria-label="One battery fewer">−</button><output data-out="batt">1</output><button type="button" data-step="batt" data-d="1" aria-label="One more battery">+</button></span></li>
+          <li><span class="sbx-part"><b>Backup generator</b><small>12 kW, outage only</small></span>
+            <button class="sbx-toggle" type="button" data-toggle="gen" aria-pressed="false" aria-label="Backup generator"><span class="sbx-switch" aria-hidden="true"><i></i></span></button></li>
+          <li><span class="sbx-part"><b>EV charger</b><small>About 8 kWh overnight</small></span>
+            <button class="sbx-toggle" type="button" data-toggle="ev" aria-pressed="true" aria-label="EV charger"><span class="sbx-switch" aria-hidden="true"><i></i></span></button></li>
+          <li class="sbx-home"><span class="sbx-part"><b>Home</b><small>What the house runs</small></span>
+            <div class="segs" role="radiogroup" aria-label="Home">
+              <label><input type="radio" name="sbx-home" value="ess"><span>Essentials</span></label>
+              <label><input type="radio" name="sbx-home" value="typ" checked><span>Typical</span></label>
+              <label><input type="radio" name="sbx-home" value="all"><span>All-electric</span></label>
+            </div></li>
+        </ul>
+        <div class="sbx-result" aria-live="polite">
+          <p class="sbx-verdict"></p>
+          <p class="sbx-sub"></p>
+          <p class="pl-tip sbx-fix"></p>
+        </div>
+        <div class="sbx-day">
+          <div class="ctl-top"><span class="label">Your day, hour by hour</span><span class="small">Click to jump</span></div>
+          <svg class="chart sbx-chart" role="img" aria-label="Solar output, home use and battery charge across the day"></svg>
+          <ul class="legend"><li><i class="sw solar"></i>Solar</li><li><i class="sw load"></i>Home use</li><li><i class="sw batt"></i>Battery</li><li><i class="sw out"></i>Power out</li></ul>
+        </div>
+        <p class="tool-note"><b>How this works:</b> a sunny summer day in 15-minute steps, after one warm-up day. Batteries are 13.5 kWh and 5 kW each. Loads follow typical daily patterns. Illustrative, not a design.</p>
+      </div>
+    </div>
+    </div>
+    <div class="app-loading" aria-live="polite"><div class="app-orb" aria-hidden="true"><i></i><i></i><i></i></div><p class="app-step">Starting</p><div class="app-progress" aria-hidden="true"><i></i></div></div>
+  </div>
+</div>

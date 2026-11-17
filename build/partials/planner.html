@@ -1,0 +1,159 @@
+<section class="band" id="res-planner">
+  <div class="wrap">
+    <div class="head row" data-rise>
+      <div>
+        <span class="label sun">Outage planner</span>
+        <h2>Will it keep your house running?</h2>
+        <p class="lead">Choose what has to stay on and size the system. We simulate a 3-day outage, hour by hour, starting at 6 pm with a full battery.</p>
+      </div>
+    </div>
+    <div class="planner" data-tool="planner">
+      <div class="pl-scene" style="--day:0.6">
+        <div class="pl-canvas" aria-hidden="true"></div>
+        <div class="pl-loading">Loading 3D view</div>
+        <div class="pl-fallback">The 3D view isn't available in this browser. The planner below still works.</div>
+        <div class="pl-clock" aria-live="off"></div>
+        <span class="pl-hint" aria-hidden="true">Drag to rotate</span>
+      </div>
+      <form class="glass pl-controls" onsubmit="return false" aria-label="Outage planner settings">
+        <div class="presets" role="group" aria-label="Quick start">
+          <span class="presets-label">Quick start</span>
+          <button type="button" data-loads="fridge freezer lights net">Essentials</button>
+          <button type="button" data-loads="fridge freezer lights net well furnace medical">Rural home</button>
+          <button type="button" data-loads="fridge freezer lights net well furnace cook water">Comfortable</button>
+          <button type="button" data-loads="fridge freezer lights net well cook water ac ev">Whole home</button>
+        </div>
+        <fieldset>
+          <legend>What must stay on?</legend>
+          <div class="chipset">
+            <label class="tog"><input type="checkbox" name="pl-load" value="fridge" checked><span>Refrigerator <small>150 W</small></span></label>
+            <label class="tog"><input type="checkbox" name="pl-load" value="freezer" checked><span>Freezer <small>80 W</small></span></label>
+            <label class="tog"><input type="checkbox" name="pl-load" value="lights" checked><span>Lights <small>200 W</small></span></label>
+            <label class="tog"><input type="checkbox" name="pl-load" value="net" checked><span>Internet and phones <small>80 W</small></span></label>
+            <label class="tog"><input type="checkbox" name="pl-load" value="well" checked><span>Well pump <small>250 W</small></span></label>
+            <label class="tog"><input type="checkbox" name="pl-load" value="furnace" checked><span>Furnace fan <small>350 W</small></span></label>
+            <label class="tog"><input type="checkbox" name="pl-load" value="medical"><span>Medical device <small>120 W</small></span></label>
+            <label class="tog"><input type="checkbox" name="pl-load" value="cook"><span>Electric cooking <small>500 W</small></span></label>
+            <label class="tog"><input type="checkbox" name="pl-load" value="water"><span>Water heater <small>900 W</small></span></label>
+            <label class="tog"><input type="checkbox" name="pl-load" value="ac"><span>Central AC <small>2.2 kW</small></span></label>
+            <label class="tog"><input type="checkbox" name="pl-load" value="ev"><span>EV charging <small>8 kWh/day</small></span></label>
+          </div>
+          <p class="tool-note">Watts are typical averages while running, not nameplate ratings.</p>
+        </fieldset>
+        <fieldset>
+          <legend>Battery</legend>
+          <div class="segs">
+            <label><input type="radio" name="pl-batt" value="13.5"><span>13.5 kWh<small>1 battery</small></span></label>
+            <label><input type="radio" name="pl-batt" value="27" checked><span>27 kWh<small>2 batteries</small></span></label>
+            <label><input type="radio" name="pl-batt" value="40.5"><span>40.5 kWh<small>3 batteries</small></span></label>
+            <label><input type="radio" name="pl-batt" value="65"><span>65 kWh<small>NERD</small></span></label>
+          </div>
+        </fieldset>
+        <div class="ctl">
+          <div class="ctl-top"><label for="pl-solar"><span>Solar on the roof</span></label><output class="val" id="pl-solar-out" for="pl-solar">8 kW</output></div>
+          <input type="range" id="pl-solar" min="0" max="15" step="1" value="8">
+        </div>
+        <div class="pl-two">
+          <fieldset><legend>Season</legend><div class="segs">
+            <label><input type="radio" name="pl-season" value="summer" checked><span>Summer</span></label>
+            <label><input type="radio" name="pl-season" value="winter"><span>Winter</span></label>
+          </div></fieldset>
+          <fieldset><legend>Sky</legend><div class="segs">
+            <label><input type="radio" name="pl-sky" value="clear" checked><span>Clear</span></label>
+            <label><input type="radio" name="pl-sky" value="overcast"><span>Overcast</span></label>
+          </div></fieldset>
+        </div>
+      </form>
+      <button class="pl-dock" type="button" aria-label="Jump to the result"><span class="pl-dock-k">Result</span><span class="pl-dock-v"></span><span class="arrow" aria-hidden="true">↓</span></button>
+      <div class="glass pl-result" aria-live="polite">
+        <div class="pl-head">
+          <div>
+            <p class="pl-verdict"></p>
+            <p class="pl-sub"></p>
+          </div>
+          <div class="pl-time">
+            <button class="btn btn-line pl-3d" type="button" data-app-open="house"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg>See your house in 3D</button>
+            <button class="round pl-play" type="button" aria-label="Play the outage replay" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="label">Replay the outage</span>
+          </div>
+        </div>
+        <p class="pl-tip"></p>
+        <p class="pl-warn" hidden></p>
+        <div class="kv-row">
+          <div class="kv"><span class="label">Your daily use <button type="button" class="tipq" data-tip="kwh" aria-label="What does this mean?" aria-expanded="false">?</button></span><b data-o="load">0</b></div>
+          <div class="kv"><span class="label">Solar makes a day</span><b data-o="sun">0</b></div>
+          <div class="kv"><span class="label">Peak if all start <button type="button" class="tipq" data-tip="peak" aria-label="What does this mean?" aria-expanded="false">?</button></span><b data-o="peak">0</b></div>
+          <div class="kv"><span class="label">Battery</span><b data-o="batt">0</b></div>
+        </div>
+        <div class="chart-wrap"><svg class="chart pl-chart" role="img" aria-label="Battery charge and power over a 72-hour outage"></svg></div>
+        <input type="range" class="pl-scrub" min="0" max="288" step="1" value="56" aria-label="Scrub through the 72-hour outage">
+        <ul class="legend">
+          <li><i class="sw batt"></i>Battery charge</li><li><i class="sw solar"></i>Solar output</li><li><i class="sw load"></i>Home use</li><li><i class="sw night"></i>Night</li><li><i class="sw out"></i>Power out</li>
+        </ul>
+        <div class="send-row"><button class="btn btn-line" type="button" data-send>Send these results to Ovanova <span class="arrow" aria-hidden="true">→</span></button><span class="small">Your selections go into the contact form, so our team starts from your numbers.</span></div>
+        <p class="tool-note"><b>How this works:</b> 15-minute steps over 72 hours. Loads follow typical daily patterns (lights in the evening, AC in the afternoon). Solar follows a clear-sky curve, about 5.6 kWh per kW of panels a day in summer and 2.7 in winter; overcast cuts that by 70%. Battery round trip 90%. Battery sizes are typical options; your design workshop uses your own usage data.</p>
+      </div>
+    </div>
+  </div>
+<div class="app-modal" id="app-house" role="dialog" aria-modal="true" aria-labelledby="app-house-title" hidden>
+  <div class="app-frame app-frame-house">
+    <header class="app-bar"><div><span class="label sun">Outage control room</span><h3 id="app-house-title">Your home through a 3-day outage</h3></div><button class="round app-close" type="button" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+    <div class="app-body hx">
+      <div class="hx-main">
+        <div class="app-slot"></div>
+        <div class="hx-transport">
+          <button class="round hx-play" type="button" data-house-play aria-pressed="false" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="hx-when"><b class="hx-time"></b><span class="hx-hour"></span></div>
+          <div class="hx-track">
+            <svg class="hx-strip" viewBox="0 0 1000 56" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <input type="range" class="hx-scrub" min="0" max="288" step="1" value="0" aria-label="Scrub through the 72-hour outage">
+          </div>
+          <div class="hx-speed" role="group" aria-label="Replay speed">
+            <button type="button" data-speed="0.15">1×</button><button type="button" data-speed="0.3" aria-pressed="true">2×</button><button type="button" data-speed="0.6">4×</button>
+          </div>
+        </div>
+      </div>
+      <aside class="hx-side" aria-label="Live outage readout">
+        <section class="hx-card hx-now" aria-live="off">
+          <div class="hx-status"><i></i><div><b></b><p></p></div></div>
+          <div class="hx-batt">
+            <svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="35" class="hx-ring-bg"/><circle cx="42" cy="42" r="35" class="hx-ring" pathLength="100"/></svg>
+            <div class="hx-batt-v"><b></b><span>Battery</span></div>
+            <dl class="hx-batt-kv">
+              <div><dt>Stored</dt><dd data-hx="kwh"></dd></div>
+              <div><dt>Time left</dt><dd data-hx="left"></dd></div>
+            </dl>
+          </div>
+          <div class="hx-flows">
+            <h4>Where the power goes</h4>
+            <div class="hx-flow" data-f="sh"><span>Solar to home</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="sb"><span>Solar to battery</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="bh"><span>Battery to home</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="sp"><span>Spare solar</span><i><s></s></i><b></b></div>
+            <div class="hx-flow bad" data-f="un"><span>Not covered</span><i><s></s></i><b></b></div>
+          </div>
+        </section>
+        <section class="hx-card hx-tune">
+          <h4>Try a change</h4>
+          <p class="hx-verdict"></p>
+          <p class="hx-tip"></p>
+          <div class="hx-row"><span>Battery</span><div class="hx-seg" data-tune="pl-batt"><button type="button" data-v="13.5">13.5</button><button type="button" data-v="27">27</button><button type="button" data-v="40.5">40.5</button><button type="button" data-v="65">65 kWh</button></div></div>
+          <div class="hx-row"><span>Solar</span><div class="hx-step"><button type="button" class="round" data-solar="-1" aria-label="Less solar">−</button><b data-hx="solar"></b><button type="button" class="round" data-solar="1" aria-label="More solar">+</button></div></div>
+          <div class="hx-row"><span>Season</span><div class="hx-seg" data-tune="pl-season"><button type="button" data-v="summer">Summer</button><button type="button" data-v="winter">Winter</button></div></div>
+          <div class="hx-row"><span>Sky</span><div class="hx-seg" data-tune="pl-sky"><button type="button" data-v="clear">Clear</button><button type="button" data-v="overcast">Overcast</button></div></div>
+          <p class="tool-note">Changes here update the planner on the page too. Close the window to change what stays on.</p>
+        </section>
+        <section class="hx-card">
+          <h4>Running right now</h4>
+          <ul class="hx-loads"></ul>
+        </section>
+        <section class="hx-card">
+          <h4>Key moments <small>Tap to jump</small></h4>
+          <ol class="hx-events"></ol>
+        </section>
+      </aside>
+    </div>
+    <div class="app-loading" aria-live="polite"><div class="app-orb" aria-hidden="true"><i></i><i></i><i></i></div><p class="app-step">Starting</p><div class="app-progress" aria-hidden="true"><i></i></div></div>
+  </div>
+</div>
+</section>

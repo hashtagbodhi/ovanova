@@ -1,0 +1,39 @@
+/* ---- Light theme: carry the Ovanova blue through the page ---- */
+.segs input:checked + span small { color: inherit; opacity: 0.75; }
+.btn-solid:hover { filter: brightness(1.08); }
+@media (prefers-color-scheme: light) {
+:root:not([data-theme="dark"]) .glass { box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(0,119,190,0.05), var(--shadow); }
+  :root:not([data-theme="dark"]) .glass:hover { border-color: rgba(0,119,190,0.22); }
+  :root:not([data-theme="dark"]) .band .btn-line { border-color: rgba(0,119,190,0.35); }
+  :root:not([data-theme="dark"]) .band .btn-line:hover { border-color: var(--sun); color: var(--sun); }
+  :root:not([data-theme="dark"]) .btn-line .arrow, :root:not([data-theme="dark"]) .link .arrow { color: var(--sun); }
+  :root:not([data-theme="dark"]) .stat b, :root:not([data-theme="dark"]) .stat .num { color: var(--ink); }
+  :root:not([data-theme="dark"]) .card .ico { background: rgba(0,140,220,0.08); border-color: rgba(0,119,190,0.28); }
+  :root:not([data-theme="dark"]) .tog input:checked + span { background: var(--act); color: #fff; border-color: var(--act); }
+  :root:not([data-theme="dark"]) .tog input:checked + span small { color: rgba(255,255,255,0.8); }
+  :root:not([data-theme="dark"]) .presets button:hover, :root:not([data-theme="dark"]) .presets button[aria-pressed="true"] { border-color: var(--sun); color: var(--sun); }
+  :root:not([data-theme="dark"]) .foot a:hover { color: var(--sun); }
+  :root:not([data-theme="dark"]) .quote-mark, :root:not([data-theme="dark"]) .voice q::before { color: var(--sun); }
+  :root:not([data-theme="dark"]) .kv b, :root:not([data-theme="dark"]) .out-big { color: var(--ink); }
+  :root:not([data-theme="dark"]) .out-big { background: linear-gradient(90deg, #00507f, #0090dd); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  :root:not([data-theme="dark"]) .lead strong, :root:not([data-theme="dark"]) .gold { color: var(--sun); }
+  :root:not([data-theme="dark"]) .nav .btn-solid { box-shadow: 0 8px 22px -10px rgba(0,119,190,0.7); }
+  :root:not([data-theme="dark"]) .hx-card, :root:not([data-theme="dark"]) .app-bar { background: color-mix(in srgb, #ffffff 70%, transparent); }
+}
+:root[data-theme="light"] .glass { box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(0,119,190,0.05), var(--shadow); }
+:root[data-theme="light"] .glass:hover { border-color: rgba(0,119,190,0.22); }
+:root[data-theme="light"] .band .btn-line { border-color: rgba(0,119,190,0.35); }
+:root[data-theme="light"] .band .btn-line:hover { border-color: var(--sun); color: var(--sun); }
+:root[data-theme="light"] .btn-line .arrow, :root[data-theme="light"] .link .arrow { color: var(--sun); }
+:root[data-theme="light"] .stat b, :root[data-theme="light"] .stat .num { color: var(--ink); }
+:root[data-theme="light"] .card .ico { background: rgba(0,140,220,0.08); border-color: rgba(0,119,190,0.28); }
+:root[data-theme="light"] .tog input:checked + span { background: var(--act); color: #fff; border-color: var(--act); }
+:root[data-theme="light"] .tog input:checked + span small { color: rgba(255,255,255,0.8); }
+:root[data-theme="light"] .presets button:hover, :root[data-theme="light"] .presets button[aria-pressed="true"] { border-color: var(--sun); color: var(--sun); }
+:root[data-theme="light"] .foot a:hover { color: var(--sun); }
+:root[data-theme="light"] .quote-mark, :root[data-theme="light"] .voice q::before { color: var(--sun); }
+:root[data-theme="light"] .kv b, :root[data-theme="light"] .out-big { color: var(--ink); }
+:root[data-theme="light"] .out-big { background: linear-gradient(90deg, #00507f, #0090dd); -webkit-background-clip: text; background-clip: text; color: transparent; }
+:root[data-theme="light"] .lead strong, :root[data-theme="light"] .gold { color: var(--sun); }
+:root[data-theme="light"] .nav .btn-solid { box-shadow: 0 8px 22px -10px rgba(0,119,190,0.7); }
+:root[data-theme="light"] .hx-card, :root[data-theme="light"] .app-bar { background: color-mix(in srgb, #ffffff 70%, transparent); }

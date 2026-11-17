@@ -1,0 +1,168 @@
+<section class="band" id="towns-sim">
+  <div class="wrap">
+    <div class="head" data-rise>
+      <span class="label sun">Town simulator</span>
+      <h2>Run your town for a day.</h2>
+      <p class="lead">A 3D feeder with a substation, a battery yard, homes and the sites that can't go dark. Watch a normal summer day, then send a storm through it.</p>
+    </div>
+    <div class="glass app-launch" data-rise>
+      <div class="app-poster">
+        <img src="img/town-poster.jpg" alt="A 3D town at dusk: substation, battery yard, homes, a hospital, a water tower, a fire station and a storm shelter" loading="lazy">
+        <span class="app-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>Interactive 3D</span>
+</div>
+      <div class="app-launch-copy">
+        <span class="label sun">Two scenarios</span>
+        <h3>Shave the peak. Survive the storm.</h3>
+        <ul class="app-points">
+          <li><b>Summer day:</b> the battery yard covers the afternoon peak and refills overnight</li>
+          <li><b>Storm:</b> the feeder trips and the hospital, water plant, fire and police, and shelter keep running</li>
+          <li>Size the town and the battery, and see the result hour by hour</li>
+        </ul>
+        <div class="btn-row"><button class="btn btn-solid" type="button" data-app-open="town" data-scen="day">Run a summer day <span class="arrow" aria-hidden="true">→</span></button><button class="btn btn-line" type="button" data-app-open="town" data-scen="storm">Run a storm</button></div>
+        <span class="small">Opens in its own window and uses the same numbers as the peak tool below.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="towns-peak">
+  <div class="wrap">
+    <div class="head" data-rise>
+      <span class="label sun">See it on a feeder</span>
+      <h2>What peak shaving does to your load curve.</h2>
+      <p class="lead">You pay for infrastructure sized to one hour of one hot afternoon. Storage charged overnight covers that hour instead. Size the battery and watch the peak come down.</p>
+    </div>
+    <div class="glass ps" data-tool="peak" data-rise>
+      <div class="ps-chart-wrap">
+        <div class="chart-wrap"><svg class="chart ps-chart" role="img" aria-label="Feeder load over a summer day, before and after battery peak shaving"></svg></div>
+        <ul class="legend">
+          <li><i class="sw before"></i>Load today</li><li><i class="sw after"></i>Load with storage</li><li><i class="sw shaved"></i>Covered by battery</li><li><i class="sw charge"></i>Battery recharging</li>
+        </ul>
+        <p class="tool-note"><b>How this works:</b> a typical summer feeder shape scaled to your peak. We find the lowest flat cap the battery can hold given its power and energy, then recharge it in the lowest-load hours at 90% round trip without creating a new peak. Your own SCADA data replaces this curve in the analysis.</p>
+      </div>
+      <div class="ps-side">
+        <div class="presets" role="group" aria-label="Start from a typical utility">
+          <span class="presets-label">Start from</span>
+          <button type="button" data-set="{&quot;ps-peak&quot;: 15, &quot;ps-pow&quot;: 15, &quot;ps-dur&quot;: &quot;4&quot;, &quot;ps-rate&quot;: 12}">Small town</button>
+          <button type="button" data-set="{&quot;ps-peak&quot;: 60, &quot;ps-pow&quot;: 12, &quot;ps-dur&quot;: &quot;4&quot;, &quot;ps-rate&quot;: 15}">Co-op</button>
+          <button type="button" data-set="{&quot;ps-peak&quot;: 140, &quot;ps-pow&quot;: 10, &quot;ps-dur&quot;: &quot;2&quot;, &quot;ps-rate&quot;: 20}">City utility</button>
+        </div>
+        <div class="ctl"><div class="ctl-top"><label for="ps-peak"><span>Town peak load</span></label><output class="val" for="ps-peak">40 MW</output></div>
+          <input type="range" id="ps-peak" min="5" max="150" step="1" value="40"></div>
+        <div class="ctl"><div class="ctl-top"><label for="ps-pow"><span>Battery power</span></label><output class="val" for="ps-pow">4 MW</output></div>
+          <input type="range" id="ps-pow" min="0" max="30" step="1" value="10" aria-describedby="ps-pow-note"><span class="tool-note" id="ps-pow-note">As a share of your peak, 0 to 30%.</span></div>
+        <fieldset style="border:0;margin:0;padding:0;display:grid;gap:12px"><legend class="ctl-top" style="padding:0;margin-bottom:12px"><span>Battery duration <button type="button" class="tipq" data-tip="duration" aria-label="What does this mean?" aria-expanded="false">?</button></span></legend>
+          <div class="segs">
+            <label><input type="radio" name="ps-dur" value="2"><span>2 hours</span></label>
+            <label><input type="radio" name="ps-dur" value="4" checked><span>4 hours</span></label>
+            <label><input type="radio" name="ps-dur" value="6"><span>6 hours</span></label>
+          </div></fieldset>
+        <div class="ctl"><div class="ctl-top"><label for="ps-rate"><span>Demand or capacity charge</span></label> <button type="button" class="tipq" data-tip="demand" aria-label="What does this mean?" aria-expanded="false">?</button><output class="val" for="ps-rate">$15/kW-mo</output></div>
+          <input type="range" id="ps-rate" min="2" max="40" step="1" value="15"></div>
+        <div class="kv-row two">
+          <div class="kv"><span class="label">Peak today</span><b class="ps-before">0</b></div>
+          <div class="kv"><span class="label">New peak</span><b class="ps-after">0</b></div>
+          <div class="kv"><span class="label">Reduction</span><b class="ps-cut" style="color:var(--sun)">0</b></div>
+          <div class="kv"><span class="label">Battery</span><b class="ps-batt">0</b></div>
+        </div>
+        <div class="kv"><span class="label">Peak charges avoided, per year</span><span class="out-big ps-save">$0</span></div>
+        <div class="send-row"><button class="btn btn-line" type="button" data-send>Send these results to Ovanova <span class="arrow" aria-hidden="true">→</span></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="app-modal" id="app-town" role="dialog" aria-modal="true" aria-labelledby="app-town-title" hidden>
+  <div class="app-frame app-frame-house">
+    <header class="app-bar"><div><span class="label sun">Town control room</span><h3 id="app-town-title">A summer day on your feeder</h3></div><button class="round app-close" type="button" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+    <div class="app-body hx">
+      <div class="hx-main">
+        <div class="app-slot"><div class="pl-scene tx-scene" style="--day:0.6"><div class="pl-canvas" aria-hidden="true"></div><span class="pl-hint" aria-hidden="true">Drag to rotate</span></div></div>
+        <div class="hx-transport">
+          <button class="round hx-play" type="button" data-town-play aria-pressed="false" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="hx-when"><b class="hx-time"></b><span class="hx-hour"></span></div>
+          <div class="hx-track">
+            <svg class="hx-strip" viewBox="0 0 1000 56" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <input type="range" class="hx-scrub" min="0" max="96" step="1" value="0" aria-label="Scrub through the day">
+          </div>
+          <div class="hx-speed" role="group" aria-label="Replay speed">
+            <button type="button" data-speed="0.075">1×</button><button type="button" data-speed="0.15" aria-pressed="true">2×</button><button type="button" data-speed="0.3">4×</button>
+          </div>
+        </div>
+      </div>
+      <aside class="hx-side" aria-label="Live feeder readout">
+        <section class="hx-card hx-now">
+          <div class="hx-status"><i></i><div><b></b><p></p></div></div>
+          <div class="tx-feed">
+            <div class="tx-feed-top"><span>Grid supplies</span><b data-tx="grid"></b></div>
+            <div class="tx-feed-bar" aria-hidden="true"><s></s><u></u><em></em></div>
+            <div class="tx-feed-key"><span><i class="k-g"></i>From the grid</span><span><i class="k-d"></i>Town demand <b data-tx="demand"></b></span><span><i class="k-c"></i>Cap</span></div>
+          </div>
+          <div class="hx-batt">
+            <svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="35" class="hx-ring-bg"/><circle cx="42" cy="42" r="35" class="hx-ring" pathLength="100"/></svg>
+            <div class="hx-batt-v"><b></b><span>Battery</span></div>
+            <dl class="hx-batt-kv">
+              <div><dt>Stored</dt><dd data-hx="kwh"></dd></div>
+              <div><dt>Right now</dt><dd data-hx="left"></dd></div>
+            </dl>
+          </div>
+          <div class="hx-flows">
+            <h4>Where the power goes</h4>
+            <div class="hx-flow" data-f="gt"><span>Grid to town</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="bt"><span>Battery to town</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="gb"><span>Grid to battery</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="bc"><span>Battery to critical sites</span><i><s></s></i><b></b></div>
+            <div class="hx-flow bad" data-f="un"><span>Not served</span><i><s></s></i><b></b></div>
+          </div>
+        </section>
+        <section class="hx-card hx-tune">
+          <h4>Try a change</h4>
+          <div class="hx-seg tx-scen" data-tx-scen><button type="button" data-v="day">Summer day</button><button type="button" data-v="storm">Storm</button></div>
+          <p class="hx-verdict"></p>
+          <div class="hx-row"><span>Town peak</span><div class="hx-step"><button type="button" class="round" data-tx-peak="-5" aria-label="Smaller town">−</button><b data-tx="peak"></b><button type="button" class="round" data-tx-peak="5" aria-label="Bigger town">+</button></div></div>
+          <div class="hx-row"><span>Battery power</span><div class="hx-seg" data-tx-pow><button type="button" data-v="0">None</button><button type="button" data-v="5">5%</button><button type="button" data-v="10">10%</button><button type="button" data-v="20">20%</button><button type="button" data-v="30">30%</button></div></div>
+          <div class="hx-row"><span>Duration</span><div class="hx-seg" data-tx-dur><button type="button" data-v="2">2 h</button><button type="button" data-v="4">4 h</button><button type="button" data-v="6">6 h</button></div></div>
+          <div class="hx-row tx-storm-row"><span>Outage</span><div class="hx-step"><button type="button" class="round" data-tx-storm="-1" aria-label="Shorter outage">−</button><b data-tx="storm"></b><button type="button" class="round" data-tx-storm="1" aria-label="Longer outage">+</button></div></div>
+          <p class="tool-note" data-tx="batt"></p>
+        </section>
+        <section class="hx-card">
+          <h4>Who has power</h4>
+          <ul class="tx-sites"></ul>
+        </section>
+        <section class="hx-card">
+          <h4>Key moments <small>Tap to jump</small></h4>
+          <ol class="hx-events"></ol>
+        </section>
+        <section class="hx-card"><p class="tool-note" style="margin:0"><b>How this works:</b> the same feeder curve and battery sizing as the peak tool on this page, in 15-minute steps. Critical sites are taken as 8% of town load. In a storm the battery is held full beforehand and serves only the critical sites while the feeder is down. Your own SCADA data replaces these assumptions in a real study.</p></section>
+      </aside>
+    </div>
+    <div class="app-loading" aria-live="polite"><div class="app-orb" aria-hidden="true"><i></i><i></i><i></i></div><p class="app-step">Starting</p><div class="app-progress" aria-hidden="true"><i></i></div></div>
+  </div>
+</div>
+
+<section class="band" id="towns-reliability">
+  <div class="wrap">
+    <div class="head" data-rise>
+      <span class="label sun">Reliability metrics</span>
+      <h2>Your SAIFI, SAIDI and CAIDI, worked out. <button type="button" class="tipq" data-tip="saidi" aria-label="What does this mean?" aria-expanded="false">?</button></h2>
+      <p class="lead">The three numbers regulators and boards ask about. Enter last year's outage records to compute them, then see what keeping critical customers powered through outages would do.</p>
+    </div>
+    <div class="glass ri" data-tool="reliability" data-rise>
+      <div class="ri-in">
+        <label for="ri-n">Customers served<input type="number" id="ri-n" min="1" step="1" value="12000"></label>
+        <label for="ri-ci">Customer interruptions last year<input type="number" id="ri-ci" min="0" step="1" value="15600"></label>
+        <label for="ri-cmi">Customer minutes interrupted<input type="number" id="ri-cmi" min="0" step="1" value="1872000"></label>
+        <div class="ctl" style="margin-top:8px"><div class="ctl-top"><label for="ri-cov"><span>Interruptions avoided by microgrids</span></label><output class="val" for="ri-cov">20%</output></div>
+          <input type="range" id="ri-cov" min="0" max="60" step="1" value="20"></div>
+        <p class="tool-note">Sample figures shown. The last slider is a planning assumption: the share of customer interruptions that local microgrids ride through.</p>
+      </div>
+      <div class="ri-out" aria-live="polite">
+        <div class="ri-row hd"><span class="label">Index</span><span class="label">Today</span><span class="label sun">With microgrids</span></div>
+        <div class="ri-row"><div><strong>SAIFI</strong><code>interruptions ÷ customers served</code></div><b class="ri-saifi">0</b><b class="after ri-saifi2">0</b></div>
+        <div class="ri-row"><div><strong>SAIDI</strong><code>minutes interrupted ÷ customers served</code></div><b class="ri-saidi">0</b><b class="after ri-saidi2">0</b></div>
+        <div class="ri-row"><div><strong>CAIDI</strong><code>minutes interrupted ÷ interruptions</code></div><b class="ri-caidi">0</b><b class="after ri-caidi2">0</b></div>
+        <p class="tool-note" style="margin-top:14px">SAIFI: how often the average customer loses power. SAIDI: how long the average customer is out each year. CAIDI: how long an outage lasts once it happens. Per IEEE 1366 definitions; major event days are not excluded here.</p>
+      </div>
+    </div>
+  </div>
+</section>

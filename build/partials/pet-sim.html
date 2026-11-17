@@ -1,0 +1,86 @@
+<section class="band" id="pet-sim">
+  <div class="wrap">
+    <div class="head" data-rise>
+      <span class="label sun">Deployment simulator</span>
+      <h2>Roll it in. Run it for three days.</h2>
+      <p class="lead">Your loads from the sizer, set up as a field camp around a real PET. Watch 72 hours of sun, battery and generator, and see exactly when it would need help.</p>
+    </div>
+    <div class="glass app-launch" data-rise>
+      <div class="app-poster">
+        <img src="img/pet-poster.jpg" alt="A 3D field camp at night powered by a PET: medical tent, refrigeration, light towers, charging station and a water tank" loading="lazy">
+        <span class="app-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>Interactive 3D</span>
+</div>
+      <div class="app-launch-copy">
+        <span class="label sun">Uses the loads above</span>
+        <h3>Will one PET carry the camp?</h3>
+        <ul class="app-points">
+          <li>Medical tents, refrigeration, lights, kitchens and comms, built from your list</li>
+          <li>See solar refill the PET by day and the generator step in only when needed</li>
+          <li>Switch between Ember, Flame and Blaze, and between clear and overcast skies</li>
+        </ul>
+        <div class="btn-row"><button class="btn btn-solid" type="button" data-app-open="pet">Deploy it <span class="arrow" aria-hidden="true">→</span></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="app-modal" id="app-pet" role="dialog" aria-modal="true" aria-labelledby="app-pet-title" hidden>
+  <div class="app-frame app-frame-house">
+    <header class="app-bar"><div><span class="label sun">Field control room</span><h3 id="app-pet-title">A 72-hour deployment</h3></div><button class="round app-close" type="button" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+    <div class="app-body hx">
+      <div class="hx-main">
+        <div class="app-slot"><div class="pl-scene px-scene" style="--day:0.6"><div class="pl-canvas" aria-hidden="true"></div><span class="pl-hint" aria-hidden="true">Drag to rotate</span></div></div>
+        <div class="hx-transport">
+          <button class="round hx-play" type="button" data-pet-play aria-pressed="false" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="hx-when"><b class="hx-time"></b><span class="hx-hour"></span></div>
+          <div class="hx-track">
+            <svg class="hx-strip" viewBox="0 0 1000 56" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <input type="range" class="hx-scrub" min="0" max="288" step="1" value="0" aria-label="Scrub through the 72-hour deployment">
+          </div>
+          <div class="hx-speed" role="group" aria-label="Replay speed">
+            <button type="button" data-speed="0.15">1×</button><button type="button" data-speed="0.3" aria-pressed="true">2×</button><button type="button" data-speed="0.6">4×</button>
+          </div>
+        </div>
+      </div>
+      <aside class="hx-side" aria-label="Live deployment readout">
+        <section class="hx-card hx-now">
+          <div class="hx-status"><i></i><div><b></b><p></p></div></div>
+          <div class="hx-batt">
+            <svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="35" class="hx-ring-bg"/><circle cx="42" cy="42" r="35" class="hx-ring" pathLength="100"/></svg>
+            <div class="hx-batt-v"><b></b><span>PET</span></div>
+            <dl class="hx-batt-kv">
+              <div><dt>Stored</dt><dd data-hx="kwh"></dd></div>
+              <div><dt>Time left</dt><dd data-hx="left"></dd></div>
+            </dl>
+          </div>
+          <div class="hx-flows">
+            <h4>Where the power goes</h4>
+            <div class="hx-flow" data-f="sl"><span>Solar to camp</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="bl"><span>Battery to camp</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="gl"><span>Generator to camp</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="sb"><span>Solar to battery</span><i><s></s></i><b></b></div>
+            <div class="hx-flow" data-f="gb"><span>Generator to battery</span><i><s></s></i><b></b></div>
+            <div class="hx-flow bad" data-f="un"><span>Not covered</span><i><s></s></i><b></b></div>
+          </div>
+        </section>
+        <section class="hx-card hx-tune">
+          <h4>Try a change</h4>
+          <p class="hx-verdict"></p>
+          <div class="hx-row"><span>Unit</span><div class="hx-seg" data-px-pet><button type="button" data-v="ember">Ember</button><button type="button" data-v="flame">Flame</button><button type="button" data-v="blaze">Blaze</button></div></div>
+          <div class="hx-row"><span>Sky</span><div class="hx-seg" data-px-sky><button type="button" data-v="clear">Clear</button><button type="button" data-v="overcast">Overcast</button></div></div>
+          <div class="hx-row"><span>Camp</span><div class="hx-seg bx-types"><button type="button" data-px-preset="0">Hurricane shelter</button><button type="button" data-px-preset="1">Job site</button><button type="button" data-px-preset="2">Festival</button><button type="button" data-px-preset="3">Field clinic</button></div></div>
+          <p class="tool-note"><span data-px="spec"></span>. <span>Operating</span> <span data-px="hours"></span>.</p>
+        </section>
+        <section class="hx-card">
+          <h4>What's running</h4>
+          <ul class="hx-loads"></ul>
+        </section>
+        <section class="hx-card">
+          <h4>Key moments <small>Tap to jump</small></h4>
+          <ol class="hx-events"></ol>
+        </section>
+        <section class="hx-card"><p class="tool-note" style="margin:0"><b>How this works:</b> the same loads, unit specs and 4.5 sun-hours a day as the sizer, in 15-minute steps from 6 pm. Loads run at their average draw during operating hours. If start-up surges exceed a unit's output, the lowest-priority loads stay off. The generator (9 kW on Ember, 26 kW on Flame) starts at 20% charge and stops at 90%. Blaze's solar input is not listed in the line-up, so it runs on its battery alone here.</p></section>
+      </aside>
+    </div>
+    <div class="app-loading" aria-live="polite"><div class="app-orb" aria-hidden="true"><i></i><i></i><i></i></div><p class="app-step">Starting</p><div class="app-progress" aria-hidden="true"><i></i></div></div>
+  </div>
+</div>

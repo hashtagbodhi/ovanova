@@ -1,0 +1,45 @@
+<section class="band" id="com-exposure">
+  <div class="wrap">
+    <div class="head" data-rise>
+      <span class="label sun">Outage exposure</span>
+      <h2>What do outages really cost you?</h2>
+      <p class="lead">Most businesses count the hours the lights were off. The real bill also includes getting back up to speed, what spoiled, and demand charges you pay every month. Put in your numbers.</p>
+    </div>
+    <div class="glass ex" data-tool="exposure" data-rise>
+      <div class="ex-in">
+        <div class="presets" role="group" aria-label="Start from a typical business">
+          <span class="presets-label">Start from</span>
+          <button type="button" data-set="{&quot;ex-hour&quot;: 900, &quot;ex-events&quot;: 6, &quot;ex-len&quot;: 3, &quot;ex-restart&quot;: 2, &quot;ex-spoil&quot;: 6000, &quot;ex-shave&quot;: 40, &quot;ex-rate&quot;: 14}">Restaurant</button>
+          <button type="button" data-set="{&quot;ex-hour&quot;: 1500, &quot;ex-events&quot;: 4, &quot;ex-len&quot;: 4, &quot;ex-restart&quot;: 6, &quot;ex-spoil&quot;: 40000, &quot;ex-shave&quot;: 120, &quot;ex-rate&quot;: 16}">Cold storage</button>
+          <button type="button" data-set="{&quot;ex-hour&quot;: 3000, &quot;ex-events&quot;: 4, &quot;ex-len&quot;: 3, &quot;ex-restart&quot;: 1, &quot;ex-spoil&quot;: 8000, &quot;ex-shave&quot;: 50, &quot;ex-rate&quot;: 15}">Clinic</button>
+          <button type="button" data-set="{&quot;ex-hour&quot;: 12000, &quot;ex-events&quot;: 5, &quot;ex-len&quot;: 2, &quot;ex-restart&quot;: 6, &quot;ex-spoil&quot;: 15000, &quot;ex-shave&quot;: 400, &quot;ex-rate&quot;: 18}">Factory</button>
+        </div>
+        <div class="ctl"><div class="ctl-top"><label for="ex-hour"><span>Cost of one hour down</span></label><output class="val" for="ex-hour" data-fmt="usd">$2,500</output></div>
+          <input type="range" id="ex-hour" min="100" max="25000" step="100" value="2500"></div>
+        <div class="ctl"><div class="ctl-top"><label for="ex-events"><span>Outages a year</span></label><output class="val" for="ex-events">4</output></div>
+          <input type="range" id="ex-events" min="0" max="24" step="1" value="4"></div>
+        <div class="ctl"><div class="ctl-top"><label for="ex-len"><span>Average outage length</span></label><output class="val" for="ex-len" data-unit=" h">3 h</output></div>
+          <input type="range" id="ex-len" min="0.5" max="48" step="0.5" value="3"></div>
+        <div class="ctl"><div class="ctl-top"><label for="ex-restart"><span>Time to get back to full speed after</span></label><output class="val" for="ex-restart" data-unit=" h">2 h</output></div>
+          <input type="range" id="ex-restart" min="0" max="24" step="0.5" value="2"></div>
+        <div class="ctl"><div class="ctl-top"><label for="ex-spoil"><span>Spoilage or damage per outage</span></label><output class="val" for="ex-spoil" data-fmt="usd">$3,000</output></div>
+          <input type="range" id="ex-spoil" min="0" max="100000" step="500" value="3000"></div>
+        <div class="ctl"><div class="ctl-top"><label for="ex-shave"><span>Peak you could shave with storage</span></label><output class="val" for="ex-shave" data-unit=" kW">60 kW</output></div>
+          <input type="range" id="ex-shave" min="0" max="1000" step="10" value="60"></div>
+        <div class="ctl"><div class="ctl-top"><label for="ex-rate"><span>Your demand charge, per kW a month</span></label> <button type="button" class="tipq" data-tip="demand" aria-label="What does this mean?" aria-expanded="false">?</button><output class="val" for="ex-rate" data-fmt="usd">$14</output></div>
+          <input type="range" id="ex-rate" min="0" max="40" step="1" value="14"></div>
+      </div>
+      <div class="ex-out">
+        <div class="kv"><span class="label">Your yearly exposure</span><span class="out-big ex-total">$0</span></div>
+        <div class="ex-bar" role="img" aria-label="Breakdown of yearly exposure"></div>
+        <ul class="ex-legend"></ul>
+        <div class="kv-row two">
+          <div class="kv"><span class="label">Each outage costs</span><b class="ex-per">$0</b></div>
+          <div class="kv"><span class="label">Over a 20-year system life</span><b class="ex-20">$0</b></div>
+        </div>
+        <p class="tool-note"><b>How this works:</b> outages × (length + recovery time) × hourly cost, plus spoilage per outage, plus shaved kW × demand charge × 12 months. No inflation or discounting. This is what a microgrid is up against, not a quote for one; your assessment sizes the system against these numbers.</p>
+        <div class="send-row"><button class="btn btn-solid" type="button" data-send>Get a microgrid assessment <span class="arrow" aria-hidden="true">→</span></button><span class="small">Your numbers go into the contact form.</span></div>
+      </div>
+    </div>
+  </div>
+</section>

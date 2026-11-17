@@ -1,0 +1,310 @@
+330	Costo de una hora detenido
+331	Apagones al año
+332	Duración promedio del apagón
+334	Tiempo para volver a ritmo normal después
+336	Pérdidas o daños por apagón
+337	Pico que podrías reducir con almacenamiento
+339	Tu cargo por demanda, por kW al mes
+340	Tu exposición anual
+341	Desglose de la exposición anual
+342	Cada apagón cuesta
+343	En una vida útil de 20 años
+344	apagones × (duración + tiempo de recuperación) × costo por hora, más pérdidas por apagón, más kW reducidos × cargo por demanda × 12 meses. Sin inflación ni descuentos. Esto es a lo que se enfrenta una microrred, no una cotización; tu evaluación dimensiona el sistema frente a estos números.
+345	Solicita una evaluación con estos números
+346	Qué incluye
+347	Un sistema de energía más inteligente y confiable.
+348	Generación solar
+349	Produce energía renovable para las operaciones diarias.
+350	Almacenamiento en baterías
+351	Mantiene con energía las cargas críticas durante los apagones.
+352	Controles inteligentes
+353	Equilibra el consumo de energía y mantiene la operación sin interrupciones.
+354	Prioriza los sistemas esenciales para mantener la continuidad del negocio.
+355	Generador opcional
+356	Respaldo extendido para eventos de larga duración.
+357	Hecha para operaciones que no pueden parar.
+358	Disponibilidad garantizada
+359	Protege la climatización, la refrigeración, los servidores, las líneas de producción y las bombas durante los apagones.
+360	Costos operativos más bajos
+361	Usa solar y almacenamiento para reducir el gasto en energía, gestionar los cargos por demanda y mover cargas de forma inteligente.
+362	Respaldo que dura
+363	A diferencia de los generadores, una microrred puede sostener eventos de varios días con energía segura, silenciosa y automatizada.
+364	Control de la demanda pico
+365	Suaviza los picos, reduce las penalizaciones y mantén predecibles los costos de energía.
+366	Espacio para electrificar
+367	Soporta flotas de VE, equipos eléctricos y cargas en crecimiento sin costosas mejoras de la red.
+368	Lista para servicios de red
+369	GridGuardian AI prepara tu instalación para servicios de red, incentivos y programas de plantas de energía virtuales.
+370	Una microrred diseñada en torno a tu negocio.
+371	Evaluación energética
+372	Evaluamos tus cargas, tu historial de apagones y tus costos de energía.
+373	Ingeniería y diseño
+374	Una microrred a medida con solar, almacenamiento, un cargador de VE opcional y control con IA.
+375	Nuestro equipo gestiona la obra completa, la interconexión y los requisitos de seguridad.
+376	Monitoreo continuo
+377	GridGuardian AI optimiza tu sistema a diario para lograr confiabilidad, ahorro y máximo rendimiento.
+378	Garantía de confiabilidad a largo plazo
+379	20 años de reparación y reemplazo.
+380	Si algún componente falla o rinde por debajo de lo esperado, lo reparamos o reemplazamos. Tus operaciones siguen con energía y tus costos siguen siendo predecibles.
+381	Habla con nuestro equipo comercial
+382	Técnico cableando un tablero eléctrico en sitio
+383	Construye confiabilidad energética
+384	Energía con la que puedes contar.
+385	Vista aérea de una instalación con techo solar y microrredes móviles
+386	Energía para
+387	todo el pueblo.
+388	Un programa llave en mano que ayuda a pueblos, cooperativas y pequeñas empresas eléctricas a implementar solar, almacenamiento e infraestructura resiliente, de forma rápida y asequible.
+389	Inicia una conversación
+390	Mira la reducción de picos
+391	El programa
+392	Resiliencia diseñada para comunidades locales.
+393	Ayudamos a tu comunidad a analizar sus necesidades, encontrar las oportunidades de mayor valor e implementar la combinación adecuada de solar, almacenamiento, controles inteligentes y energía distribuida.
+394	El objetivo: energía más confiable, flexible y resiliente para las personas a las que sirves.
+395	Del arranque a los resultados
+396	mes
+397	Para un análisis completo, con el apoyo total de tu equipo.
+398	Dónde está el valor
+399	Lo que ayudamos a desbloquear a empresas eléctricas y pueblos.
+400	Desconexión inteligente de cargas
+401	Reducción de picos y gestión de la demanda
+402	Desplazamiento de cargas
+403	Soporte de potencia reactiva (VAR)
+404	Mitigación de costos de infraestructura de red
+405	Carga de VE e integración V2G
+406	Análisis de CAIDI, SAIFI, SAIDI, PBR y PIM, donde aplique
+407	Míralo en un alimentador
+408	Lo que la reducción de picos le hace a tu curva de carga.
+409	Pagas una infraestructura dimensionada para una hora de una tarde calurosa. El almacenamiento cargado durante la noche cubre esa hora. Dimensiona la batería y mira cómo baja el pico.
+410	Gráfica
+411	Cada torre es una hora. Arrastra para girar.
+412	Carga del alimentador en un día de verano, antes y después de reducir el pico con baterías
+413	Carga actual
+414	Carga con almacenamiento
+415	Cubierta por la batería
+416	Batería recargando
+417	una forma típica de alimentador en verano, escalada a tu pico. Buscamos el tope plano más bajo que la batería puede sostener según su potencia y energía, y luego la recargamos en las horas de menor carga con 90% de eficiencia, sin crear un nuevo pico. En el análisis, tus propios datos SCADA reemplazan esta curva.
+418	Carga pico del pueblo
+420	Potencia de la batería
+422	Como porcentaje de tu pico, de 0 a 30%.
+423	Duración de la batería
+424	2 horas
+425	4 horas
+426	6 horas
+427	Cargo por demanda o capacidad
+428	$15/kW-mes
+429	Pico actual
+430	Pico con almacenamiento
+431	Reducción
+432	Cargos por pico evitados, al año
+433	Indicadores de confiabilidad
+434	Tus SAIFI, SAIDI y CAIDI, calculados.
+435	Los tres números que piden los reguladores y las juntas directivas. Ingresa los registros de interrupciones del año pasado para calcularlos y luego mira qué pasaría si los clientes críticos mantuvieran la energía durante los apagones.
+436	Clientes atendidos
+437	Interrupciones a clientes el año pasado
+438	Minutos de interrupción a clientes
+439	Interrupciones evitadas por microrredes
+440	Se muestran cifras de ejemplo. El último control es un supuesto de planificación: la parte de las interrupciones que las microrredes locales logran sortear.
+441	Índice
+442	Hoy
+443	Con microrredes
+445	interrupciones ÷ clientes atendidos
+447	minutos de interrupción ÷ clientes atendidos
+449	minutos de interrupción ÷ interrupciones
+450	SAIFI: con qué frecuencia el cliente promedio se queda sin energía. SAIDI: cuánto tiempo pasa sin energía el cliente promedio cada año. CAIDI: cuánto dura un apagón una vez que ocurre. Según las definiciones de IEEE 1366; aquí no se excluyen los días de eventos mayores.
+451	Estrategias
+452	Estrategias de alto valor, entregadas rápido.
+453	En unas pocas sesiones enfocadas, ayudamos a tu equipo a encontrar dónde se pueden lograr mejoras significativas.
+454	Reducción de picos
+455	Analizamos tu perfil de carga para encontrar los periodos de alta demanda y reducir la presión sobre tu infraestructura. Menores costos, mejor eficiencia y menos inversiones reactivas.
+456	Cambiar cuándo se usa la energía, no solo cuánta, aprovecha mejor la capacidad existente, mejora la estabilidad y abre nuevas fuentes de valor.
+457	Aplazamiento de infraestructura
+458	En lugar de recurrir por defecto a la expansión de capital, inversiones de resiliencia focalizadas pueden reducir o retrasar grandes mejoras.
+459	Integración de VE y V2G
+460	Los vehículos eléctricos y la carga bidireccional pueden servir a tu red además de a tus clientes, convirtiendo la carga en valor.
+461	Análisis de indicadores de confiabilidad
+462	Donde aplique, revisamos CAIDI, SAIDI y SAIFI y los convertimos en recomendaciones claras, listas para la junta directiva.
+463	Contigo, no por ti
+464	Preparamos a tu equipo para buscar subvenciones e incentivos de pago directo, involucrar a los líderes comunitarios y operar los activos de resiliencia por cuenta propia.
+465	Lo que se necesita para empezar
+466	Dos conversaciones breves. Luego hacemos el trabajo pesado.
+467	Ingeniería e infraestructura
+468	Para entender tu red, tus cargas y tu plan de desarrollo.
+469	Responsables de finanzas y legal
+470	Para que tu liderazgo tenga lo necesario para evaluar la oportunidad y presentarla a la junta.
+471	Nosotros nos encargamos del resto
+472	Análisis, estrategia de financiamiento e implementación, con tu equipo capacitado para liderar.
+473	Ya eres dueño de tu red. Ya gestionas tus operaciones. Probablemente ya tienes fondos reservados para infraestructura y resiliencia. Power Towns convierte esa capacidad en un impacto medible y duradero, con menos retrasos y más control local.
+474	De la planificación a la implementación
+475	Construyamos el próximo Power Town.
+476	Hablemos de cómo sería la implementación para tu empresa eléctrica.
+477	Cuatro microrredes móviles PET de Ovanova estacionadas con los paneles solares desplegados
+478	que llega.
+479	Tecnología de Energía Portátil: microrredes móviles para respuesta a desastres, obras y eventos. PET restablece la energía rápido, donde la red no puede.
+480	Compra un PET
+481	Invierte en PET
+482	Dos misiones, una plataforma
+483	Sin acceso a la energía, las personas quedan literalmente sin poder. Los PET se despliegan rápido en emergencias y rinden frutos el resto del año. Nunca son activos ociosos.
+484	Entre tormentas
+485	Soporte seguro a la red
+486	Conecta un PET a un edificio para reducir la demanda pico, mejorar la seguridad energética del sitio y obtener ingresos con servicios de red.
+487	Todos los días
+488	Energía portátil para tu comunidad
+489	Granjas fuera de la red, eventos y obras de contratistas. Los dueños obtienen ingresos rentando sus PET cuando no los usan.
+490	Por qué PET
+491	Hecho para las primeras horas después.
+492	En manos de la gente
+493	Lo despliegan personas comunes. Sin permisos ni esperas. Diseñado para llegar cuando los sistemas grandes no pueden.
+494	Más rápido que FEMA
+495	Energía que salva vidas y mantiene a la gente conectada desde que llegan los PET, sin entregas de combustible ni acceso a la red.
+496	Remolcado por camionetas
+497	Compacto y listo para la carretera. Se remolca a zonas de tormenta y da energía en minutos.
+498	Muchas fuentes
+499	La solar, el generador y la descarga de VE mantienen el sistema en línea durante emergencias prolongadas.
+500	La línea
+501	Tres microrredes portátiles.
+502	Dimensiona uno para tu trabajo
+504	Mediano
+505	Para operaciones de campo y respuesta a desastres.
+508	Entrada solar
+510	Carga
+511	Solar, red y generador
+512	Carpas médicas, refugios, herramientas, iluminación, varias cargas a la vez.
+514	Varias fuentes
+515	Microrred grande con generador bicombustible integrado.
+517	26 kW bicombustible
+518	Bases de ayuda, cocinas, climatización, bancos de refrigeración.
+520	Grado de empresa eléctrica
+521	Para operaciones de alta demanda.
+523	62.4 kW (120/208V trifásico); 24 kW (120/240V fase partida)
+524	Especial
+525	Salida de fase partida y trifásica a la vez
+526	Centros de mando, sitios con varios edificios, cargas industriales.
+527	Dimensiónalo para el trabajo
+528	¿Qué PET necesita este despliegue?
+529	Dinos qué vas a alimentar. Lo comparamos con la potencia y el almacenamiento de cada unidad, y te mostramos cuán poco tiempo de generador necesita un híbrido frente a tener un generador encendido todo el día.
+530	Carpa médica
+531	1.5 kW en promedio
+532	Una carpa médica menos
+533	Una carpa médica más
+534	Unidad de refrigeración
+535	0.8 kW en promedio
+536	Una unidad de refrigeración menos
+537	Una unidad de refrigeración más
+538	Luces y ventiladores del refugio
+539	0.5 kW en promedio
+540	Un juego de iluminación menos
+541	Un juego de iluminación más
+542	Estación de carga de teléfonos
+543	0.3 kW en promedio
+544	Una estación de carga menos
+545	Una estación de carga más
+546	Cocina de campaña
+547	2.5 kW en promedio
+548	Una cocina de campaña menos
+549	Una cocina de campaña más
+550	Unidad de climatización
+551	2 kW en promedio
+552	Una unidad de climatización menos
+553	Una unidad de climatización más
+554	Herramientas eléctricas
+555	Un juego de herramientas menos
+556	Un juego de herramientas más
+557	Bomba de agua
+558	0.75 kW en promedio
+559	Una bomba de agua menos
+560	Una bomba de agua más
+561	Centro de mando: TI y radios
+562	1 kW en promedio
+563	Un centro de mando menos
+564	Un centro de mando más
+565	Horas de operación
+566	24 h/día
+567	Pico si todo arranca
+568	Energía necesaria al día
+569	Carga pico como porcentaje de la potencia
+571	Funciona
+572	La solar cubre
+573	Generador necesario
+574	62.4 kW trifásico
+575	Horas de generador al día
+576	Generador convencional
+577	PET Flame, híbrido
+578	0 h/día
+579	pico = todas las cargas arrancando a la vez, comparado con la potencia nominal de cada unidad. Energía diaria = cargas promedio × horas. La solar supone 4.5 horas de sol al día. La autonomía usa la capacidad nominal de la batería; el generador bicombustible de 26 kW del Flame solo funciona para cubrir lo que la solar y la batería no alcanzan. Especificaciones de la línea PET de Ovanova.
+580	Para dueños
+581	Tres formas en que un PET se paga solo.
+582	Resiliencia a prueba de tormentas
+583	Remólcalo a zonas sin energía para alimentar clínicas, refugios y hogares en cuanto llega. Baterías a bordo, toldos solares, un generador bicombustible (propano y gas natural) y transferencia rápida de energía desde VE mantienen las luces encendidas.
+584	Conectar y abastecer
+585	Conéctalo directamente a un edificio para reducir picos, desplazar cargas o dar energía de respaldo.
+586	Ingresos por renta
+587	Los PET se rentan por $300 a $450 al día. Con dos temporadas intensas de 100 días, un PET puede pagarse solo y seguir generando ingresos después.
+588	PET frente a un generador
+589	No es un reemplazo del generador. Es una evolución.
+590	Característica
+591	Microrred híbrida PET
+592	Generador de gasolina o diésel
+593	Ruido
+594	Energía silenciosa de batería; generador de bajo ruido cuando hace falta
+595	Ruidoso
+596	Consumo de combustible
+597	Mínimo. El generador solo funciona cuando se necesita
+598	Recarga constante
+599	Emisiones
+600	Casi cero con batería y solar
+601	Altas
+602	Mantenimiento
+603	Bajo. El generador se usa poco
+604	Frecuente
+605	Autonomía
+606	Varios días con batería, recarga solar y apoyo del generador
+607	Limitada por el combustible
+608	Instalación
+609	Minutos
+610	Compleja, variable
+611	Ideal para
+612	Ayuda en desastres, obras, operaciones remotas, eventos, centros de resiliencia
+613	Cargas de corto plazo, respaldo básico
+614	Remolque PET con las alas solares abiertas
+615	Remolque PET con un tanque de propano al lado
+616	Remolque PET negro con paneles solares en el techo, visto desde arriba
+617	Mira un PET desplegado en una obra en Tennessee en
+618	nuestro canal de YouTube ↗
+619	“Ovanova está impulsando el tipo de sistemas de energía resilientes y distribuidos que son infraestructura indispensable para que la humanidad prospere en el siglo XXI.”
+620	Evan Daywell, analista, artista y gerente de producto
+621	Energía portátil
+622	Prepárate antes de que se vaya la luz.
+623	Representación conceptual del NERD, un gran gabinete de baterías con pantalla de estado
+624	Hola,
+626	El Dispositivo Nacional de Resiliencia Energética. Una batería grande y hermosa, con el cerebro y las conexiones para mantener tu lugar funcionando. Puedes conectarle lo que sea.
+627	Reserva un NERD
+628	Sitio completo del NERD ↗
+629	Entregado
+630	Para reservar
+631	Primeras entregas, previstas
+632	4 de julio de 2028
+633	En desarrollo. Diseño de producción planificado; aún faltan las pruebas finales del sistema y la certificación.
+634	Incluido en cada NERD
+635	Batería, cerebro y conexiones.
+637	Energía almacenada.
+638	Potencia de salida, objetivo de diseño.
+640	Seguridad y control inteligente, integrados.
+641	También incluye: controles inteligentes de circuitos, app para el teléfono, inteligencia local y hardware de comunicaciones redundante.
+642	Qué significan 65 kWh
+643	Cuánto tiempo hace funcionar tu casa un NERD lleno.
+644	Los kilovatios-hora son difíciles de imaginar. Esto es lo que un NERD lleno mantiene funcionando sin sol y sin red, desde lo esencial hasta toda la casa en verano.
+645	Lo esencial
+646	Refrigerador, congelador, luces, internet y teléfonos.
+647	Lo esencial en el campo
+648	Suma la bomba del pozo, el ventilador de la calefacción y un dispositivo médico.
+649	Vida normal, sin aire acondicionado
+650	Suma la cocina eléctrica y el agua caliente.
+651	Toda la casa en verano
+652	Todo, incluido el aire acondicionado central.
+653	Solo la batería, desde llena, con los mismos consumos típicos de nuestro
+654	planificador de apagones
+655	, donde puedes agregar solar y ver cómo se recarga cada día.
+656	Siempre en control
+657	¿Qué pasa cuando se cae el internet?
+658	Cuatro formas independientes de mantenerse conectado, y un control local que no necesita ninguna. Corta los enlaces y compruébalo.
+659	El NERD conectado a cuatro enlaces de comunicación
