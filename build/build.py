@@ -143,7 +143,8 @@ def head(title, desc, extra=''):
     return f'''<title>{title}</title>
 <meta name="description" content="{desc}">
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="theme-color" content="#070a0d">
+<meta name="theme-color" content="#eef2f5">
+<script>try{{var __t=localStorage.getItem('ovanova-theme');document.documentElement.setAttribute('data-theme',__t==='dark'?'dark':'light')}}catch(e){{document.documentElement.setAttribute('data-theme','light')}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{FONTS}">
@@ -177,7 +178,7 @@ def ascii_safe(html):
     return ''.join(out)
 
 def build():
-    css = open(os.path.join(HERE, 'site.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'tools.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'scenes.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'polish.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'ux.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'apps.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'light.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'mc.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'rail.css'), encoding='utf-8').read()
+    css = open(os.path.join(HERE, 'site.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'tools.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'scenes.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'polish.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'ux.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'apps.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'light.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'mc.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'rail.css'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'accent.css'), encoding='utf-8').read()
     js = open(os.path.join(HERE, 'site.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'tools.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'sandbox.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'scenes.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'ux.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'voices.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'typo.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'housex.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'townx.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'bizx.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'petx.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'apps.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'mc.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'rail.js'), encoding='utf-8').read()
     common = {}
     for slug, fname, title, desc in PAGES:

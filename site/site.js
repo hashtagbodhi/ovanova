@@ -20,12 +20,12 @@
 
   /* Theme */
   $$('#theme-btn, [data-theme-toggle]').forEach(function (themeBtn) { themeBtn.addEventListener('click', function () {
-    var cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    var cur = root.getAttribute('data-theme') || 'light';
     var next = cur === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('ovanova-theme', next); } catch (e) {}
   }); });
-  try { var saved = localStorage.getItem('ovanova-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  try { var saved = localStorage.getItem('ovanova-theme'); root.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light'); } catch (e) {}
 
   /* Navigation: mega menus, mobile sheet, tuck on scroll */
   var shell = $('.nav-shell');

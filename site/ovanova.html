@@ -1,7 +1,8 @@
 <title>Ovanova Redesign</title>
 <meta name="description" content="Turnkey microgrids for homes, businesses and communities. Solar, storage and intelligent controls that keep running when the grid does not.">
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="theme-color" content="#070a0d">
+<meta name="theme-color" content="#eef2f5">
+<script>try{var __t=localStorage.getItem('ovanova-theme');document.documentElement.setAttribute('data-theme',__t==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500&family=Manrope:wght@400;500;600&family=Michroma&display=swap">
@@ -1769,6 +1770,53 @@ html.app-open .rail, html.app-open .bgfx { visibility: hidden; }
 .split > .sdiv { grid-column: 1 / -1 !important; order: -1 !important; }
 .split { row-gap: 0; }
 @media (max-width: 900px) { .split { row-gap: var(--head-gap); } .split > .sdiv { margin-bottom: 0; } }
+
+/* ==== Accent refinement: one secondary aqua beside the blue, used in small, quiet places ==== */
+:root { --sun-2: #4fd8e6; --sun-edge: color-mix(in srgb, var(--sun) 32%, transparent); }
+:root[data-theme="light"] { --sun-2: #00a3b8; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --sun-2: #00a3b8; } }
+
+/* selection and focus */
+::selection { background: color-mix(in srgb, var(--sun) 28%, transparent); color: inherit; }
+:focus-visible { outline-color: var(--sun); box-shadow: 0 0 0 4px color-mix(in srgb, var(--sun) 18%, transparent); }
+
+/* primary buttons: a faint blue-to-aqua sheen, light theme and nav only (dark keeps its white button) */
+:root[data-theme="light"] .btn-solid:not(.on-media *) { background: linear-gradient(135deg, var(--sun), color-mix(in srgb, var(--sun) 72%, var(--sun-2))); }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .btn-solid:not(.on-media *) { background: linear-gradient(135deg, var(--sun), color-mix(in srgb, var(--sun) 72%, var(--sun-2))); } }
+.btn-solid:hover { box-shadow: 0 14px 40px -12px color-mix(in srgb, var(--sun) 70%, transparent); }
+.btn-ghost:hover, .btn-line:hover { border-color: var(--sun-edge); }
+
+/* accent text and numerals glide from blue to aqua */
+.lines .gold, .gold { background: linear-gradient(100deg, var(--sun), var(--sun-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+.stat b sup { color: var(--sun-2); }
+
+/* nav: current page gets a small accent underline */
+.nav-links > a[aria-current="page"], .nav-links > button.current { color: var(--ink); box-shadow: inset 0 -2px 0 -0px var(--sun); }
+.nav-links > a:hover { color: var(--ink); }
+
+/* cards, chips and menu items pick up a tint on hover */
+.cards .card { transition: border-color 0.3s, box-shadow 0.4s var(--ease), transform 0.4s var(--ease); }
+.cards .card:hover { border-color: var(--sun-edge); box-shadow: 0 24px 60px -34px color-mix(in srgb, var(--sun) 55%, transparent); }
+.chip { border-color: color-mix(in srgb, var(--sun) 20%, var(--line)); }
+.chip:hover, .chip[aria-pressed="true"] { border-color: var(--sun-edge); background: color-mix(in srgb, var(--sun) 9%, transparent); }
+.mega a.item:hover b { color: var(--sun-2); }
+
+/* sections: dividers and the spine end in aqua */
+.sdiv .sl::after { background: linear-gradient(90deg, transparent, var(--sun), var(--sun-2), transparent); }
+.rail-fill { background: linear-gradient(180deg, transparent, var(--sun) 40%, var(--sun-2)); }
+.bg-glow.b { background: radial-gradient(closest-side, color-mix(in srgb, var(--sun-2) 13%, transparent), transparent); }
+
+/* controls */
+input[type="range"] { accent-color: var(--sun); }
+a.link, .tl { text-decoration-color: var(--sun-edge); }
+
+/* simulator windows are a fixed dark cockpit: keep their original blue */
+.app-modal.mc { --sun-2: #4fd8e6; }
+
+/* hero -> page: the photo itself dissolves into the real page background (light theme), so no edge is left */
+:root[data-theme="light"] .hero, :root[data-theme="light"] .phero { background: transparent; }
+:root[data-theme="light"] :is(.hero, .phero) :is(.hero-media, .phero-media), :root[data-theme="light"] :is(.hero, .phero)::after { -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, rgba(0,0,0,0.7) 78%, rgba(0,0,0,0.3) 90%, transparent 100%); mask-image: linear-gradient(180deg, #000 0%, #000 62%, rgba(0,0,0,0.7) 78%, rgba(0,0,0,0.3) 90%, transparent 100%); }
+:root[data-theme="light"] :is(.hero, .phero)::after { background: linear-gradient(180deg, rgba(6,10,14,0.6) 0%, rgba(6,10,14,0.12) 28%, rgba(6,10,14,0.55) 62%, rgba(6,10,14,0.86) 100%); }
 
 </style>
 <script>document.documentElement.setAttribute("data-spa","");window.OVA_MODEL_EXT=".glb.wasm";</script>
@@ -4751,12 +4799,12 @@ window.OVA_I18N={"es": {"Skip to content": "Saltar al contenido", "Ovanova home"
 
   /* Theme */
   $$('#theme-btn, [data-theme-toggle]').forEach(function (themeBtn) { themeBtn.addEventListener('click', function () {
-    var cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    var cur = root.getAttribute('data-theme') || 'light';
     var next = cur === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('ovanova-theme', next); } catch (e) {}
   }); });
-  try { var saved = localStorage.getItem('ovanova-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  try { var saved = localStorage.getItem('ovanova-theme'); root.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light'); } catch (e) {}
 
   /* Navigation: mega menus, mobile sheet, tuck on scroll */
   var shell = $('.nav-shell');
